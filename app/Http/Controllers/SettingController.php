@@ -184,15 +184,15 @@ class SettingController extends Controller
         if ($data) {
             $data->smtp_host = $request->host;
             $data->smtp_port = $request->port;
-            $data->smtp_username = $request->username;
-            $data->smtp_password = $request->password;
+            $data->smtp_username = $request->smtp_username;
+            $data->smtp_password = $request->smtp_password;
             if ($admin_pic != null) {
                 $data->admin_pic = $admin_pic;
             }
             $data->save();
         }
 
-        $user = User::find(Auth::user());
+        $user = User::find(Auth::user()->id);
         if ($user && $request->change_password == 1) {
             $user->password = Hash::make($request->password);
         }

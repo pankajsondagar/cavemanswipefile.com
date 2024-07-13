@@ -137,7 +137,7 @@
                                     <label for="username" class=" form-control-label">Username</label>
                                 </div>
                                 <div class="col-12 col-md-9">
-                                    <input type="text" id="username" name="username" class="form-control" value="{{ old('smtp_username') ?? @$data->smtp_username }}">
+                                    <input type="text" id="username" name="smtp_username" class="form-control" value="{{ old('smtp_username') ?? @$data->smtp_username }}">
                                     @error('username')
                                         <p class="error">{{ $message }}</p>
                                     @enderror
@@ -149,7 +149,7 @@
                                     <label for="password" class=" form-control-label">Password</label>
                                 </div>
                                 <div class="col-12 col-md-9">
-                                    <input type="password" id="password" name="password" class="form-control" value="{{ old('smtp_password') ?? @$data->smtp_password }}">
+                                    <input type="password" id="password" name="smtp_password" class="form-control" value="{{ old('smtp_password') ?? @$data->smtp_password }}">
                                     @error('password')
                                         <p class="error">{{ $message }}</p>
                                     @enderror
