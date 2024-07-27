@@ -85,9 +85,10 @@ class PayPlanSettingController extends Controller
             $data->reg_fee = $request->reg_fee;
             $data->renewal_fee = $request->renewal_fee;
             $data->membership_interval = $request->membership_interval;
-            $data->member_as_vendor = $request->member_as_vendo ?? 0;
+            $data->member_as_vendor = $request->member_as_vendor ?? 0;
             $data->allow_inactive = $request->allow_inactive ?? 0;
             $data->status = $request->status;
+            $data->intial_commission = $request->intial_commission;
             if ($logo != null) {
                 $data->logo = $logo;
             }

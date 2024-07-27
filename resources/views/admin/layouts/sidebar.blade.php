@@ -26,6 +26,12 @@
     $digitalContentList       = $currentRouteName == 'admin.digital.content.list';
     $digitalContentEdit       = $currentRouteName == 'admin.digital.content.edit';
     $digitalContentCreate       = $currentRouteName == 'admin.digital.content.create';
+    use App\Models\PayPlanLeader;
+    $bronzeLeader = PayPlanLeader::where('type',1)->first();
+    $silverLeader = PayPlanLeader::where('type',2)->first();
+    $goldLeader = PayPlanLeader::where('type',3)->first();
+    $platinumLeader = PayPlanLeader::where('type',4)->first();
+    $diamondLeader = PayPlanLeader::where('type',5)->first();
 @endphp
 
 <aside class="menu-sidebar d-none d-lg-block">
@@ -90,19 +96,19 @@
                             <a href="{{ route('admin.payplan.structure')}}">Structure</a>
                         </li>
                         <li class="{{ $payplanLeaders && request()->route('type') == 1 ? 'active' : '' }}">
-                            <a href="{{ route('admin.payplan.leaders',['type' => 1])}}">Bronze Leader</a>
+                            <a href="{{ route('admin.payplan.leaders',['type' => 1])}}">{{ @$bronzeLeader->name }}</a>
                         </li>
                         <li class="{{ $payplanLeaders && request()->route('type') == 2 ? 'active' : '' }}">
-                            <a href="{{ route('admin.payplan.leaders',['type' => 2])}}">Silver Leader</a>
+                            <a href="{{ route('admin.payplan.leaders',['type' => 2])}}">{{ @$silverLeader->name }}</a>
                         </li>
                         <li class="{{ $payplanLeaders && request()->route('type') == 3 ? 'active' : '' }}">
-                            <a href="{{ route('admin.payplan.leaders',['type' => 3])}}">Gold Leader</a>
+                            <a href="{{ route('admin.payplan.leaders',['type' => 3])}}">{{ @$goldLeader->name }}</a>
                         </li>
                         <li class="{{ $payplanLeaders && request()->route('type') == 4 ? 'active' : '' }}">
-                            <a href="{{ route('admin.payplan.leaders',['type' => 4])}}">Platinum Leader</a>
+                            <a href="{{ route('admin.payplan.leaders',['type' => 4])}}">{{ @$platinumLeader->name }}</a>
                         </li>
                         <li class="{{ $payplanLeaders && request()->route('type') == 5 ? 'active' : '' }}">
-                            <a href="{{ route('admin.payplan.leaders',['type' => 5])}}">Diamond Leader</a>
+                            <a href="{{ route('admin.payplan.leaders',['type' => 5])}}">{{ @$diamondLeader->name }}</a>
                         </li>
                     </ul>
                 </li>
