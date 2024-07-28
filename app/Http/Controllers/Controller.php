@@ -17,9 +17,9 @@ class Controller extends BaseController
 
     public function page($slug)
     {
-        $page = Page::where('slug',$slug)->first();
+        $page = Page::where('slug',$slug)->firstOrFail();
         $pages = Page::whereNotIn('slug',['mlm-leads','comp-plan'])->get();
-        return view('page',['page' => $page,'pages' => $pages]);
+        return view('frontend.page',['page' => $page,'pages' => $pages]);
     }
 
     public function welcome($hashedUsername = null)

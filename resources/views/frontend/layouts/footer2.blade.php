@@ -1,6 +1,6 @@
 <footer class="bg-gradient-aztec-green position-relative">
             <div class="position-absolute left-minus-100px top-25px">
-                <img src="images/mentors/demo-elearning-bg-05555555.png" alt="" class="w-80">
+                <img src="{{ asset('images/mentors/demo-elearning-bg-05555555.png') }}" alt="" class="w-80">
             </div>
             <div class="background-position-center-top h-100 w-100 position-absolute left-0px top-0" style="background-image: url('images/mentors/vertical-line-bg-small.svg')"></div>
             <div class="container overlap-section">
@@ -28,7 +28,7 @@
                     <!-- start footer column -->
                     <div class="col-lg-3 col-md-4 col-sm-6 d-flex flex-column last-paragraph-no-margin md-mb-40px xs-mb-30px">
                         <a href="index-temp.html" class="footer-logo mb-15px d-inline-block">
-                            <img src="images/mentors/Cave-File-L.png" data-at2x="images/demo-elearning-footer-logo@2x.png" alt="">
+                            <img src="{{ asset('images/mentors/Cave-File-L.png') }}" data-at2x="images/demo-elearning-footer-logo@2x.png" alt="">
                         </a>
                         <p class="lh-28">Providing High-Quality In Demand Courses & Swipe Files.</p>
                         <div class="elements-social social-text-style-01 mt-9 xs-mt-15px">
@@ -57,11 +57,9 @@
                     <div class="col-lg-3 col-md-4 col-sm-6 last-paragraph-no-margin xs-mb-30px"> 
                         <span class="fw-500 fs-18 d-block text-white mb-10px"></span>
                         <span class="lh-26 d-block"></span>
-                        <span class="d-block mb-10px style2"><a href="{{ route('spam-policy') }}">Spam Policy</a></span>
-						<span class="d-block mb-10px style2"><a href="{{ route('privacy-policy') }}">Privacy Policy</a></span>
-						<span class="d-block mb-10px style2"><a href="{{ route('cookie-policy') }}">Cookie Policy</a></span>
-						<span class="d-block mb-10px style2"><a href="{{ route('terms-conditions') }}">Terms & Conditions</a></span>
-						<span class="d-block mb-10px style2"><a href="{{ route('earnings-disclaimer') }}">Earnings Disclaimer</a></span>
+                        @foreach(@$pages as $value)
+                            <span class="d-block mb-10px style2"><a href="{{ route('page',['slug' => $value->slug ]) }}">{{ @$value->title }}</a></span>
+                        @endforeach
                         <span class="lh-26 d-block"></span>
                         <a href="" class="text-white text-decoration-line-bottom"></a>
 				  </div>

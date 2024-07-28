@@ -11,7 +11,7 @@
                         <div class="card-header">
                             <strong>Payment</strong>
                         </div>
-                        <img class="card-img-top" src="{{ asset('storage/uploads/' . $plan->logo) }}" alt="Card image cap">
+                        <img class="card-img-top" src="{{ asset('storage/uploads/' . $plan->header_img) }}" alt="Card image cap">
                         <div class="card-body">
                             <h4 class="card-title mb-3">{{ $plan->name }}</h4>
                             <div class="pull-right">

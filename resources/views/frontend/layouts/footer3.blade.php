@@ -42,11 +42,9 @@
                     <div class="col-lg-3 col-md-4 col-sm-6 last-paragraph-no-margin xs-mb-30px"> 
                         <span class="fw-500 fs-18 d-block text-white mb-10px"></span>
                         <span class="lh-26 d-block"></span>
-                        <span class="d-block mb-10px style2"><a href="{{ route('spam-policy') }}">Spam Policy</a></span>
-						<span class="d-block mb-10px style2"><a href="{{ route('privacy-policy') }}">Privacy Policy</a></span>
-						<span class="d-block mb-10px style2"><a href="{{ route('cookie-policy') }}">Cookie Policy</a></span>
-						<span class="d-block mb-10px style2"><a href="{{ route('terms-conditions') }}">Terms & Conditions</a></span>
-						<span class="d-block mb-10px style2"><a href="{{ route('earnings-disclaimer') }}">Earnings Disclaimer</a></span>
+                        @foreach(@$pages as $value)
+                            <span class="d-block mb-10px style2"><a href="{{ route('page',['slug' => $value->slug ]) }}">{{ @$value->title }}</a></span>
+                        @endforeach
                         <span class="lh-26 d-block"></span>
                         <a href="" class="text-white text-decoration-line-bottom"></a>
                     </div>

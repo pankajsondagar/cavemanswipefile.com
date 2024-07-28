@@ -40,11 +40,9 @@
                         <span class="lh-26 d-block"></span>
                         <span class="text-white d-block mb-10px"><span class="bg-base-color fw-700 text-dark-gray lh-22 text-uppercase border-radius-30px ps-10px pe-10px fs-11 ms-5px d-inline-block align-middle"></span></span>
                         <span class="lh-26 d-block"></span>
-                        <span class="d-block mb-10px style2"><a href="{{ route('spam-policy') }}">Spam Policy</a></span>
-						<span class="d-block mb-10px style2"><a href="{{ route('privacy-policy') }}">Privacy Policy</a></span>
-						<span class="d-block mb-10px style2"><a href="{{ route('cookie-policy') }}">Cookie Policy</a></span>
-						<span class="d-block mb-10px style2"><a href="{{ route('terms-conditions') }}">Terms & Conditions</a></span>
-						<span class="d-block mb-10px style2"><a href="{{ route('earnings-disclaimer') }}">Earnings Disclaimer</a></span>
+                        @foreach(@$pages as $value)
+                            <span class="d-block mb-10px style2"><a href="{{ route('page',['slug' => $value->slug ]) }}">{{ @$value->title }}</a></span>
+                        @endforeach
                     </div>
                     <!-- end footer column -->
                     <!-- start footer column -->

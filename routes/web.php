@@ -37,9 +37,7 @@ $adminURL = App\Models\Content::where('slug','admin-url')->first();
 Route::fallback(function () {
     return abort('404');
 });
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/', [Controller::class, 'welcome'])->name('welcome');
 
 Route::get('/leads', function() {
     return view('frontend.leads');
@@ -84,7 +82,7 @@ Route::get('/list', function() {
 Route::get('/register', function() {
     return view('frontend.register');
 })->name('register');
-Route::get('/home/{hashedUsername?}', [Controller::class, 'welcome'])->name('welcome');
+Route::get('/home/{hashedUsername?}', [Controller::class, 'welcome'])->name('home');
 
 Route::get('/page/{slug}', [Controller::class, 'page'])->name('page');
 
